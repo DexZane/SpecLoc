@@ -29,13 +29,15 @@ python -m pip install -r requirements.txt
 
 ```bash
 # CUDA 11.8
-python -m pip install -r requirements-cu118.txt
+python -m pip install -r requirements/cuda118.txt
+python -m pip install -e .
 
 # 仅 CPU（开发与 CI）
-python -m pip install -r requirements-cpu.txt
+python -m pip install -r requirements/cpu.txt
+python -m pip install -e .
 
-# CUDA 12.1 + 测试和 lint 工具
-python -m pip install -r requirements-dev.txt
+# 测试和 lint 工具（先完成任一运行环境安装）
+python -m pip install -r requirements/dev.txt
 ```
 
 所有配置都使用预编译 MMCV wheel；如果没有匹配的 wheel，安装会立即失败，不会悄悄
@@ -115,7 +117,7 @@ specloc evaluate aitod
 
 ```text
 SpecLoc/
-├── .github/                 CI、Issue 和 PR 模板
+├── .github/                 GitHub Actions CI
 ├── configs/                 MMDetection 实验配置
 ├── data/                    本地数据挂载点（不提交数据）
 ├── docs/                    实验和复现文档
@@ -125,24 +127,22 @@ SpecLoc/
 ├── tests/                   单元和合同测试
 ├── tools/                   MMEngine 底层训练、测试和分析入口
 ├── pyproject.toml           包元数据与工具配置
-├── requirements.txt         默认 CUDA 12.1 一步安装入口
-└── Makefile                 常用开发快捷命令
+└── requirements.txt         默认 CUDA 12.1 一步安装入口
 ```
 
 ## 开发
 
 ```bash
-python -m pip install -r requirements-dev.txt
-make test
-make lint
+python -m pip install -r requirements/dev.txt
+python -m pytest tests/ -q
+python -m ruff check src tests scripts tools
 ```
 
 底层兼容入口 `tools/train.py`、`tools/test.py` 和
 `scripts/runCloudExperiment.sh` 继续保留，但新用户优先使用 `specloc` 命令。
 
-完整运行说明见 [运行手册](运行手册.md)，数据约定见 [data/README.md](data/README.md)，
-贡献流程见 [CONTRIBUTING.md](CONTRIBUTING.md)，引用信息见
-[CITATION.cff](CITATION.cff)。
+数据约定见 [data/README.md](data/README.md)，依赖配置说明见
+[requirements/README.md](requirements/README.md)。个人运行手册属于本地资料，不上传仓库。
 
 ## 证据边界
 
@@ -155,7 +155,7 @@ make lint
 
 SpecLoc 自有代码使用 [Apache License 2.0](LICENSE)。部分命令行工具和评估常量
 改编自 OpenMMLab 与 cocoapi-aitod，版权与许可说明见
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+[第三方许可说明](docs/THIRD_PARTY_NOTICES.md)。
 
 本仓库不分发 RSOD、AI-TOD/AI-TOD-v2 原始数据、派生标注、预训练权重、训练权重或
 实验输出。数据集与权重不适用 SpecLoc 的 Apache-2.0 许可，必须分别遵守上游条款。

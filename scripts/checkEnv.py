@@ -104,7 +104,6 @@ def check_files(dataset: str) -> list[Result]:
         'tools/distTrain.sh',
         'tools/analysisTools/extractSpectrumObjectTable.py',
         'tools/analysisTools/spectrumInformationGate.py',
-        '运行手册.md',
     )
     return [
         Result(f'文件 {relative}', (REPO / relative).is_file())
@@ -221,7 +220,7 @@ def main() -> int:
     parser.add_argument(
         '--strict-versions',
         action='store_true',
-        help='强制核对 environment.yml 约定的核心依赖版本',
+        help='强制核对 requirements/ 中约定的核心依赖版本',
     )
     args = parser.parse_args()
 

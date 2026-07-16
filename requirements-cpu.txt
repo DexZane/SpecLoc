@@ -1,3 +1,0 @@
-# CPU-only installation profile used by CI and local code checks.
--r requirements/cpu.txt
--e .

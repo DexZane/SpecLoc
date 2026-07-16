@@ -253,13 +253,14 @@ echo "Git commit: $REVISION"
 if [[ "$SKIP_SETUP" -eq 0 ]]; then
     step '创建或更新 Conda/CUDA 环境'
     if "$CONDA_BIN" run -n "$ENV_NAME" python -V >/dev/null 2>&1; then
-        "$CONDA_BIN" env update -n "$ENV_NAME" -f environment.yml
+        "$CONDA_BIN" env update -n "$ENV_NAME" -f requirements/environment.yml
     else
-        "$CONDA_BIN" env create -n "$ENV_NAME" -f environment.yml
+        "$CONDA_BIN" env create -n "$ENV_NAME" -f requirements/environment.yml
     fi
 
     step '按锁定依赖安装 MMCV 与当前项目'
-    run_env python -m pip install -r requirements-cu118.txt
+    run_env python -m pip install -r requirements/cuda118.txt
+    run_env python -m pip install -e .
     run_env python -m pip install -r requirements/dev.txt
 else
     step '使用已有 Conda 环境'

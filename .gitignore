@@ -37,6 +37,9 @@ secrets/
 *.swp
 *.swo
 
+# Local-only documentation
+/运行手册.md
+
 # Training artifacts
 work_dirs/
 outputs/

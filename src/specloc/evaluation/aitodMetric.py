@@ -1,6 +1,6 @@
 # Copyright (c) 2026 SpecLoc Authors
 # AI-TOD area partitions are derived from the official cocoapi-aitod toolkit.
-# See THIRD_PARTY_NOTICES.md for the retained upstream notice.
+# See docs/THIRD_PARTY_NOTICES.md for the retained upstream notice.
 # SPDX-License-Identifier: Apache-2.0
 """AI-TOD-v2 evaluation with the official object-size partitions."""
 
