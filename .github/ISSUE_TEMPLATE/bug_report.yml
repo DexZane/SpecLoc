@@ -1,0 +1,38 @@
+name: Bug report
+description: 报告可复现的安装、数据、训练或评估问题
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: 请移除密钥、私有下载地址和未授权数据后再提交。
+  - type: textarea
+    id: problem
+    attributes:
+      label: 问题描述
+      description: 实际发生了什么，预期行为是什么？
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 最小复现步骤
+      description: 请提供从干净环境开始的最短命令。
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境信息
+      description: 请粘贴 `specloc info` 输出。
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 完整错误日志
+      render: text
+    validations:
+      required: true

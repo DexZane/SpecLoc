@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=69,<82", "wheel>=0.43"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "specloc"
+version = "0.8.0"
+description = "Auditable remote-sensing tiny-object detection and local-spectrum analysis"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10,<3.12"
+authors = [{ name = "SpecLoc Authors" }]
+keywords = [
+    "object-detection",
+    "tiny-object",
+    "spectral-analysis",
+    "remote-sensing",
+    "mmdetection",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "setuptools>=69,<82",
+    "torch>=2.1,<2.3",
+    "torchvision>=0.16,<0.18",
+    "mmcv>=2.0,<2.2",
+    "mmengine>=0.10,<1.0",
+    "mmdet==3.3.0",
+    "numpy>=1.26,<2.0",
+    "scipy>=1.11,<2.0",
+    "pandas>=2.0,<3.0",
+    "Pillow>=10.0",
+    "PyYAML>=6.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/DexZane/SpecLoc"
+Repository = "https://github.com/DexZane/SpecLoc.git"
+Issues = "https://github.com/DexZane/SpecLoc/issues"
+
+[project.scripts]
+specloc = "specloc.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.6",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

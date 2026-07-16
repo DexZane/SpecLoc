@@ -1,0 +1,3 @@
+# Default installation profile: NVIDIA CUDA 12.1.
+-r requirements/cuda121.txt
+-e .

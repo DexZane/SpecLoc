@@ -1,0 +1,12 @@
+# Direct runtime dependencies shared by CPU and CUDA installations.
+# Keep these exact for reproducible experiments; pyproject.toml keeps the
+# broader compatibility ranges used by package metadata.
+setuptools==80.10.2
+wheel==0.47.0
+mmengine==0.10.7
+mmdet==3.3.0
+numpy==1.26.4
+scipy==1.15.3
+pandas==2.3.3
+Pillow==12.2.0
+PyYAML==6.0.3

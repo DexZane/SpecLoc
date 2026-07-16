@@ -1,0 +1,73 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+secrets/
+.secrets/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Training artifacts
+work_dirs/
+outputs/
+runs/
+wandb/
+mlruns/
+lightning_logs/
+tensorboard/
+*.log
+slurm-*.out
+*.pth
+*.pt
+*.ckpt
+*.onnx
+
+# Data (keep structure only)
+data/*
+!data/.gitkeep
+!data/README.md
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Analysis outputs
+analysis_results/
+*.png
+*.pdf

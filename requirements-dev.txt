@@ -1,0 +1,3 @@
+# Default CUDA 12.1 profile plus development tools.
+-r requirements.txt
+-r requirements/dev.txt

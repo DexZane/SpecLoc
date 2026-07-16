@@ -1,0 +1,10 @@
+SpecLoc
+Copyright 2026 SpecLoc Authors
+
+This product includes software developed by the OpenMMLab project
+(https://github.com/open-mmlab/mmdetection), licensed under the Apache
+License, Version 2.0.
+
+This product uses evaluation constants derived from cocoapi-aitod
+(https://github.com/jwwangchn/cocoapi-aitod). The retained upstream
+copyright and license notice is in THIRD_PARTY_NOTICES.md.
